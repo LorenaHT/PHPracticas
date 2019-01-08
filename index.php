@@ -13,6 +13,7 @@ function listaEjemplos()
     }
     closedir($dir);
     return $ejemplos;
+
 }
 
 ?>
