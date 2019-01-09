@@ -43,14 +43,14 @@ function listaEjemplos()
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/resume.min.css" rel="stylesheet">
+    <link href="css/resume.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <a class="naranja navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Start Bootstrap</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
@@ -68,7 +68,7 @@ function listaEjemplos()
             foreach (listaEjemplos() as $ficheroEjemplo) {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger"
+                    <a class="nav-link js-scroll-trigger naranja"
                        href="?seccion=<?php echo $ficheroEjemplo . ".php" ?>"><?php echo $ficheroEjemplo ?></a></li>
             <?php } ?>
 

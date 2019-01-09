@@ -7,7 +7,7 @@
             <?php
             $servername = "localhost";
             $username = "root";
-            $password = "";
+            $password = "elrincon";
             $dbname = "tienda";
 
             // Create connection

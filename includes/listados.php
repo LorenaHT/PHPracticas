@@ -25,6 +25,7 @@ function generaAssocDesdeDesordenado($rutaFichero)
     $registro = fgets($fich_desc); // lectura del primer registro
 
     while (!feof($fich_desc)) {
+        //$registro = fgets($fich_desc); // leer siguiente ...
         $campos = explode("#", $registro);
         if (!isset($assoc[$campos[0]]))
             $assoc[$campos[0]] = array();

@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
 body {
-  font-family: 'Open Sans', serif;
+  font-family: 'Open Sans', serif !important;
   padding-top: 54px;
   color: #868e96; }
 
@@ -55,7 +55,7 @@ h2 {
 
 @media (min-width: 992px) {
   #sideNav {
-    text-align: center;
+    text-align: left;
     position: fixed;
     top: 0;
     left: 0;
@@ -76,7 +76,8 @@ h2 {
       align-items: flex-start;
       flex-grow: 0;
       width: 100%;
-      margin-bottom: auto; }
+      margin-bottom: auto;
+    overflow-y: auto;}
       #sideNav .navbar-collapse .navbar-nav {
         flex-direction: column;
         width: 100%; }
@@ -108,6 +109,10 @@ section.resume-section {
 
 .text-primary {
   color: #BD5D38 !important; }
+
+.naranja{
+  background-color: #BD5D38 !important;
+}
 
 a {
   color: #BD5D38; }
