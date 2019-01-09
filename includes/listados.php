@@ -24,6 +24,8 @@ function generaAssocDesdeDesordenado($rutaFichero)
     $fich_desc = fopen($rutaFichero, 'r');
     $registro = fgets($fich_desc); // lectura del primer registro
 
+
+    
     while (!feof($fich_desc)) {
         //$registro = fgets($fich_desc); // leer siguiente ...
         $campos = explode("#", $registro);
