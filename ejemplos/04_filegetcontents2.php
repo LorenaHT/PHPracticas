@@ -10,6 +10,8 @@ $cadena=file_get_contents("https://api.themoviedb.org/3/movie/500?language=es-ES
 $jsonPeli = json_decode($cadena);
 
 //var_dump($jsonPeli);
-echo $jsonPeli -> tagline;
+echo $jsonPeli -> overview;
+
+//echo $jsonPeli -> tagline;
 //foreach ($jsonPeli as $k => $v)
   //  echo $k. " => ". $v. "<br/>";

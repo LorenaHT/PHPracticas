@@ -12,7 +12,7 @@
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //primera vez o datos enviados
     if (empty($_POST["name"])) {
         $nameErr = "Name is required";
     } else {
@@ -66,17 +66,18 @@ function test_input($data) {
 
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field.</span></p>
-<form method="post" action="?seccion=formulario.php">
-    Name: <input type="text" name="name" value="<?php echo $name;?>">
+<!-- <form method="post" action="<?php //$_SERVER['PHP_SELF'];?>"> -->
+    <form method="post" action="<?= $_SERVER['REQUEST_URI'];?>">
+    Name: <input type="text" name="name" value="<?= $name;?>">
     <span class="error">* <?php echo $nameErr;?></span>
     <br><br>
-    E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+    E-mail: <input type="text" name="email" value="<?=$email;?>">
     <span class="error">* <?php echo $emailErr;?></span>
     <br><br>
-    Website: <input type="text" name="website" value="<?php echo $website;?>">
+    Website: <input type="text" name="website" value="<?=$website;?>">
     <span class="error"><?php echo $websiteErr;?></span>
     <br><br>
-    Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+    Comment: <textarea name="comment" rows="5" cols="40"><?= $comment;?></textarea>
     <br><br>
     Gender:
     <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
