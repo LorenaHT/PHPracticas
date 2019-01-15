@@ -6,7 +6,7 @@
  * Time: 11:41
  */
 
-//namespace Datos;
+namespace Datos;
 
     class Persona
     {
@@ -15,7 +15,23 @@
         private $fecha;
         private $ecivil; //'S,C,D,A'
         private $altura; //entero cms.
-        protected static $contadorP = 0;
+        private static $contadorP = 0;
+
+        /**
+         * @return int
+         */
+        public static function getContadorP(): int
+        {
+            return self::$contadorP;
+        }
+
+        /**
+         * @param int $contadorP
+         */
+        public static function setContadorP(int $contadorP): void
+        {
+            self::$contadorP = $contadorP;
+        }
 
         /**
          * Persona constructor.
