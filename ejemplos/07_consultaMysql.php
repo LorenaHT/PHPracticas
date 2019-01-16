@@ -16,15 +16,20 @@
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                //$rows = array();
+                $rows = array();
                 // output data of each row
                // echo "<ul>";
                 while ($row = $result->fetch_assoc()) {
+                    //iterar en row
+                    /*echo "<li>";
+                    foreach ($row as $k => $v){
+                        print ($k . " => ". $v . " | ");
+
+                    }
+                    echo "</li>";*/
                     $rows[] = $row;
-                  //  echo "<li> ";
-                //    foreach ($row as $k => $v)
-                      //  echo $k . "=>" . $v.", ";
-                   // echo "</li> ";
+
+
                 }
               //  echo "</ul>";
                 //var_dump($rows);

@@ -7,13 +7,13 @@
  */
 include_once ("modelo/Estudiante.php");
 
-use Datos\Estudiante as E;
+//use Datos\Estudiante as E;
 use Datos\Persona as P;
 //$est1 = new E("443332211G", "Paco", "19930215",'S',183);
-$est1 = new E(123, "20180612","443332211G", "Paco", "19930215",'S',183);
+$est1 = new Datos\Estudiante(123, "20180612","443332211G", "Paco", "19930215",'S',183);
 var_dump($est1);
 echo("<br/>");
-echo("Número de estudiantes : " . E::getContadorE());
+echo("Número de estudiantes : " . Datos\Estudiante::getContadorE());
 echo("<br/>");
 echo("<br/>");
 $per1 = new P("443332211G", "Paco", "19930215",'S',183);
