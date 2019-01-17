@@ -34,7 +34,8 @@
               //  echo "</ul>";
                 //var_dump($rows);
                 Header("Content-type:application/json");
-                print (json_encode($rows));
+                $json = json_encode($rows);
+                //print (json_encode($rows));
              //   $x= xmlrpc_encode($rows);
 
 
