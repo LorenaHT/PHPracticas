@@ -5,7 +5,7 @@
  * Date: 14/01/2019
  * Time: 13:32
  */
-include_once ("modelo/Estudiante.php");
+require("modelo/Estudiante.php");
 
 //use Datos\Estudiante as E;
 use Datos\Persona as P;
@@ -20,6 +20,9 @@ $per1 = new P("443332211G", "Paco", "19930215",'S',183);
 var_dump($per1);
 echo("<br/>");
 echo("Número de personas : " . P::getContadorP());
+echo("<br/>");
+echo("<br/>");
+printf("%d -> %s", $per1->getAltura(), $per1->__toString());
 
 
 

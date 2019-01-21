@@ -7,8 +7,8 @@
  */
 
 namespace Datos;
-
-    class Persona
+require("modelo/Humano.php");
+class  Persona implements Humano, Interfaz2
     {
         private $nif;
         private $nombre;
@@ -134,4 +134,32 @@ namespace Datos;
             $this->altura = $altura;
         }
 
+    public function caminar($numPasos)
+    {
+        // TODO: Implement caminar() method
+        return $numPasos * 1.23;
     }
+
+    public function dormir($numHoras)
+    {
+        // TODO: Implement dormir() method.
+        return ($numHoras >= 8);
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        //return $this->nif . "#" . $this->nombre;
+        return $this->nif . "#" . self::FOO2;
+    }
+
+    public function metodo2()
+    {
+        // TODO: Implement metodo2() method.
+    }
+}
+    interface Interfaz2{
+        public function metodo2();
+
+}
+
