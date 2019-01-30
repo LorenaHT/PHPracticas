@@ -5,13 +5,16 @@
         </h1>
         <div class="subheading mb-5">
             <?php
+            require "./includes/config.php";
             try{
-            $servername = "localhost";
+            /*$servername = "localhost";
             $username = "root";
             $password = "elrincon";
             $database="tienda";
             // Create connection
-            $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+            $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);*/
+            $db = new DB();
+            $conn = $db->getConexionPDO();
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $categoria = 1;

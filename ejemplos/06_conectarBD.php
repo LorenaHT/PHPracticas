@@ -5,7 +5,9 @@
         </h1>
         <div class="subheading mb-5">
             <?php
-            $servername = "localhost";
+
+            require "./includes/config.php";
+           /* $servername = "localhost";
             $username = "root";
             $password = "elrincon";
             $database="tienda";
@@ -17,7 +19,10 @@
             if ($conn->connect_error) {
                 die("Fallo al conectar: " . $conn->connect_error);
             }
-            echo "Conexión establecida...<br/>";
+            echo "Conexión establecida...<br/>";*/
+
+           $db = new DB();
+           $conn = $db->getConexionMysqli();
 
             $sql = "select * from books";
             if ($conn->query($sql) ) {
