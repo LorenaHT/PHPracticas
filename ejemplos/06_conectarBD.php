@@ -6,7 +6,7 @@
         <div class="subheading mb-5">
             <?php
 
-            require "./includes/config.php";
+            require "./includes/bd.php";
            /* $servername = "localhost";
             $username = "root";
             $password = "elrincon";
