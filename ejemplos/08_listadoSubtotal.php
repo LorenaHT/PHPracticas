@@ -13,9 +13,9 @@
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
-            if ($conn->connect_error) {
+            if ($conn->connect_error) :
                 die("Connection failed: " . $conn->connect_error);
-            }
+            endif;
 
             $sql = "SELECT c.category_name cat , b.title titulo , b.price precio
                        FROM books b inner join categories c  
@@ -23,7 +23,7 @@
                        ORDER BY b.category_id";
             $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
+            if ($result->num_rows > 0) :
              $rows=array();
                 // output data of each row
                 echo "<table>";
@@ -32,26 +32,26 @@
                 $total=0;
                 $contador=0;
                 $primeraVez=true;
-                while ($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) :
                     $rows[] =$row;
-                    if ($primeraVez) {
+                    if ($primeraVez) :
                         $primeraVez = false;
                         $cat_ant = $row['cat'];
                         ECHO "<TR><td>".$row['cat']."</td></TR>";
-                    }
-                    if (($row['cat'] != $cat_ant) ){
+                    endif;
+                    if (($row['cat'] != $cat_ant) ):
                         $cat_ant = $row['cat'];
                         echo " <tr><td colspan='2'>subtotal </td><td>".$subtotal."</td></tr>";
                         ECHO "<TR><td>".$row['cat']."</td></TR>";
                         $total+=$subtotal;
 
                         $subtotal=0;
-                    }
+                    endif;
                     //$primeraVez=false;
                     echo "<tr><TD></TD></TD><td>".$row['titulo']."</td><Td></Td><td>".$row['precio']."</td></tr>" ;
                   $subtotal += (float)$row['precio'];
 
-                }
+                endwhile;
                 echo " <tr><td colspan='2'>subtotal </td><Td></Td><td>".$subtotal."</td></tr>";
                 $total+=$subtotal;
                 echo " <tr><td colspan='2'>total </td><td>".$total."</td></tr>";
@@ -61,9 +61,9 @@
                 $rows1=ksort($rows);
                // var_dump($rows1);
                 //echo json_encode($rows);
-            } else {
+            else :
                 echo "No hay registros";
-            }
+            endif;
             $conn->close();
             ?>
         </div>

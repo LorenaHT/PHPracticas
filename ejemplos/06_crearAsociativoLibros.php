@@ -24,7 +24,7 @@
             $results = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             //$books = [];
             $books = array();
-            foreach ($results as $k => $v){
+            foreach ($results as $k => $v):
                 $book = new \Datos\Book();
                 $book->setBookId($v["book_id"]);
                 $book->setTitle($v["title"]);
@@ -32,7 +32,7 @@
                 $book->setPrice($v["price"]);
                 $book->setCategoryId($v["category_id"]);
                 $books[$book->getBookId()] = $book;
-            }
+            endforeach;
             echo "<pre>";
             var_dump($books);
             echo "<pre/>";

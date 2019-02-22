@@ -10,11 +10,12 @@ $datosFichero= generaAssocDesdeDesordenado("datos/desordenado.txt");
 var_dump($datosFichero);
 echo "</pre>";*/
 //ksort($datosFichero);
-foreach ($datosFichero as $k => $v) {
+foreach ($datosFichero as $k => $v) :
     echo"<ul> $k :";
-    foreach ($v as $v1)
+    foreach ($v as $v1) :
         echo "<li>$v1</li>";
+    endforeach;
     echo "</ul>";
-}
+endforeach;
 ?>
 </section>

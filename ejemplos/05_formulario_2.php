@@ -17,43 +17,46 @@ function char_at($str, $pos)
 $numerosErr = $fechaErr = $emailErr = $nifErr = "";
 $numeros = $fecha = $email = $nif = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { //primera vez o datos enviados
-    if (empty($_POST["numeros"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") : //primera vez o datos enviados
+    if (empty($_POST["numeros"])) :
         $numerosErr = "Numeros is required";
-    } else {
+    else :
         $numeros = test_input($_POST["numeros"]);
         // check if name only contains letters and whitespace
-        if (!filter_var($numeros, FILTER_VALIDATE_INT)) {
+        if (!filter_var($numeros, FILTER_VALIDATE_INT)) :
             $numerosErr = "Only numbers and white space allowed";
-        }
-    }
+        endif;
+    endif;
 
-    if (empty($_POST["fecha"])) {
+    if (empty($_POST["fecha"])) :
         $fechaErr = "Fecha is required";
-    } else {
+    else :
         $fecha = test_input($_POST["fecha"]);
         // check if fecha address is well-formed
         $matches = explode('/', $fecha);
         $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
-        if (!preg_match($pattern, $fecha, $matches))
+        if (!preg_match($pattern, $fecha, $matches)) :
              $fechaErr = "Fecha incorrecta";
-        else if (!checkdate($matches[2], $matches[1], $matches[3]))
-            $fechaErr = "Fecha incorrecta";
-    }
+        else :
+            if (!checkdate($matches[2], $matches[1], $matches[3])) :
+                $fechaErr = "Fecha incorrecta";
+            endif;
+        endif;
+    endif;
 
-    if (empty($_POST["email"])) {
+    if (empty($_POST["email"])) :
         $emailErr = "Email is required";
-    } else {
+    else :
         $email = test_input($_POST["email"]);
         // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
             $emailErr = "Email erroneo";
-        }
-    }
+        endif;
+    endif;
 
-    if (empty($_POST["nif"])) {
+    if (empty($_POST["nif"])):
         $nifErr = "El DNI es un campo obligatorio";
-    } else {
+    else :
         $nif = test_input($_POST["nif"]);
         // check if name only contains letters and whitespace
         $validChars = 'TRWAGMYFPDXBNJZSQVHLCKET';
@@ -61,25 +64,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //primera vez o datos enviados
         $nieRexp = "/^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]$/i";
         $str = strtoupper($nif);
 
-        if (!preg_match($nifRexp,$str) && !preg_match($nieRexp,$str))
+        if (!preg_match($nifRexp,$str) && !preg_match($nieRexp,$str)) :
            $nifErr="DNI erroneo";
-
+        endif;
         $nie = str_replace($str, "/^[X]/", '0');
         $nie = str_replace($str, "/^[Y]/", '1');
         $nie = str_replace($str, "/^[Z]/", '2');
 
-  $letter = substr($str, -1);
-  $charIndex = intval(substr($nif, 0, 8) % 23);
+      $letter = substr($str, -1);
+      $charIndex = intval(substr($nif, 0, 8) % 23);
 
 
-  if (char_at($validChars , $charIndex) !== $letter) {
-      $nifErr = "DNI incorrecto";
-  }
-
-
-
-    }
-}
+      if (char_at($validChars , $charIndex) !== $letter) :
+          $nifErr = "DNI incorrecto";
+      endif;
+    endif;
+endif;
 
 function test_input($data) {
     $data = trim($data);

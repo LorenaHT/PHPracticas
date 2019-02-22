@@ -26,12 +26,13 @@
                 $results = $sentencia->fetchAll(PDO::FETCH_ASSOC);
            // $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo "<ul>";
-            foreach ($results as $k => $v) {
+            foreach ($results as $k => $v) :
                 echo "<li>";
-                foreach ($v as $k1 => $v1)
+                foreach ($v as $k1 => $v1) :
                     echo $k1 . " => " . $v1 . " ; ";
+                endforeach;
                 echo "</li>";
-            }
+            endforeach;
             echo "</ul>";
             }catch (PDOException $ex){
                 echo $ex->getMessage();

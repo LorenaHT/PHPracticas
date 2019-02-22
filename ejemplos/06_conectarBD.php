@@ -25,11 +25,11 @@
            $conn = $db->getConexionMysqli();
 
             $sql = "select * from books";
-            if ($conn->query($sql) ) {
+            if ($conn->query($sql) ) :
                 echo "Consulta realizada";
-            } else {
+            else :
                 echo "Problema en la consulta: " . $conn->error;
-            }
+            endif;
             $conn->close();
             ?>
         </div>

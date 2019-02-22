@@ -13,16 +13,19 @@ session_start();
 }*/
 //$contador = 0;
 
-if(isset($_POST['action']) && $_POST['action'] == "Destroy") {
+if(isset($_POST['action']) && $_POST['action'] == "Destroy") :
     session_destroy();
     session_id(uniqid());
     session_start();
-}else if(isset($_POST['action']) && $_POST['action'] == "Sumar"){
+else :
+    if(isset($_POST['action']) && $_POST['action'] == "Sumar") :
     //$_SESSION['contador']++;
    ++$_SESSION['contador'];
-}
-if(!isset($_SESSION['contador']))
+    endif;
+endif;
+if(!isset($_SESSION['contador'])) :
     $_SESSION['contador']=0;
+endif;
 echo session_id() . "<br/>";
 
 ?>
